@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Klinik-Ku</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+    <style>
+      @keyframes fade-in-left {
+        0% {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./index.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <navbar-wrapper class="navbar-wrapper">
+          <!--Navbar component-->
+          <header class="navbar-container">
+            <header data-thq="thq-navbar" class="navbar-navbar-interactive">
+              <img
+                alt="logo"
+                src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/84ec08e8-34e9-42c7-9445-d2806d156403/fac575ac-7a41-484f-b7ac-875042de11f8?org_if_sml=1&amp;force_format=original"
+                class="navbar-image1"
+              />
+              <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
+                <nav class="navbar-links1">
+                  <span class="thq-link thq-body-small"><span>Home</span></span>
+                  <span class="thq-link thq-body-small">
+                    <span>Pendaftaran</span>
+                  </span>
+                  <span class="thq-link thq-body-small">
+                    <span>Janji Temu</span>
+                  </span>
+                  <span class="thq-link thq-body-small">
+                    <span>Rekam Medis</span>
+                  </span>
+                  <span class="thq-link thq-body-small">
+                    <span>Pembayaran</span>
+                  </span>
+                </nav>
+                <div class="navbar-buttons1">
+                  <button
+                    class="navbar-action11 thq-button-filled thq-button-animated"
+                  >
+                    <span class="thq-body-small">
+                      <span>Login</span>
+                      <br />
+                    </span>
+                  </button>
+                  <button
+                    class="navbar-action21 thq-button-outline thq-button-animated"
+                  >
+                    <span class="thq-body-small">
+                      <span>Register</span>
+                      <br />
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div data-thq="thq-burger-menu" class="navbar-burger-menu">
+                <svg viewBox="0 0 1024 1024" class="navbar-icon1">
+                  <path
+                    d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+                  ></path>
+                </svg>
+              </div>
+              <div data-thq="thq-mobile-menu" class="navbar-mobile-menu">
+                <div class="navbar-nav">
+                  <div class="navbar-top">
+                    <img
+                      alt="logo"
+                      src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/84ec08e8-34e9-42c7-9445-d2806d156403/fac575ac-7a41-484f-b7ac-875042de11f8?org_if_sml=1&amp;force_format=original"
+                      class="navbar-logo"
+                    />
+                    <div data-thq="thq-close-menu" class="navbar-close-menu">
+                      <svg viewBox="0 0 1024 1024" class="navbar-icon3">
+                        <path
+                          d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <nav class="navbar-links2">
+                    <span class="thq-link thq-body-small">
+                      <span>Home</span>
+                    </span>
+                    <span class="thq-link thq-body-small">
+                      <span>Pendaftaran</span>
+                    </span>
+                    <span class="thq-link thq-body-small">
+                      <span>Janji Temu</span>
+                    </span>
+                    <span class="thq-link thq-body-small">
+                      <span>Rekam Medis</span>
+                    </span>
+                    <span class="thq-link thq-body-small">
+                      <span>Pembayaran</span>
+                    </span>
+                  </nav>
+                </div>
+                <div class="navbar-buttons2">
+                  <button class="thq-button-filled">Login</button>
+                  <button class="thq-button-outline">Register</button>
+                </div>
+              </div>
+            </header>
+          </header>
+        </navbar-wrapper>
+        <hero-wrapper class="hero-wrapper">
+          <!--Hero component-->
+          <div class="hero-header78">
+            <div class="hero-column thq-section-max-width thq-section-padding">
+              <div class="hero-content1">
+                <h1 class="hero-text1 thq-heading-1">
+                  <span>Selamat Datang Di Klinik-Ku</span>
+                </h1>
+                <p class="hero-text2 thq-body-large">
+                  <fragment class="home-fragment1">
+                    <span class="home-text1">
+                      <span>
+                        Kami memberikan pelayanan kesehatan yang handal, dengan
+                        dukungan
+                      </span>
+                      <br />
+                      <span>
+                        dokter spesialis terpilih dan disertai alat-alat modern.
+                      </span>
+                    </span>
+                  </fragment>
+                </p>
+              </div>
+              <div class="hero-actions">
+                <button class="thq-button-filled hero-button">
+                  <span class="thq-body-small">
+                    <span>Daftar Sekarang</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div class="hero-content2">
+              <div
+                class="hero-row-container1 thq-mask-image-horizontal thq-animated-group-container-horizontal"
+              >
+                <div class="thq-animated-group-horizontal">
+                  <img
+                    alt="Hero Image"
+                    src="dokter1.jpg"
+                    class="hero-placeholder-image10 thq-img-scale thq-img-ratio-1-1"
+                  />
+                  <img
+                    alt="Hero Image"
+                    src="dokter2.jpg"
+                    class="hero-placeholder-image11 thq-img-scale thq-img-ratio-1-1"
+                  />
+                  <img
+                    alt="Hero Image"
+                    src="Dokter3.jpg"
+                    class="hero-placeholder-image12 thq-img-scale thq-img-ratio-1-1"
+                  />
+                  <img
+                    alt="Hero Image"
+                    src="Dokter4.jpg"
+                    class="hero-placeholder-image13 thq-img-scale thq-img-ratio-1-1"
+                  />
+                  <img
+                    alt="Hero Image"
+                    src="dokter5.jpg"
+                    class="hero-placeholder-image14 thq-img-scale thq-img-ratio-1-1"
+                  />
+                </div>
+                <div class="thq-animated-group-horizontal">
+                  <img
+                    alt="Hero Image"
+                    src="dokter6.jpg"
+                    class="hero-placeholder-image15 thq-img-scale thq-img-ratio-1-1"
+                  />
+                  <img
+                    alt="Hero Image"
+                    src="dokter7.jpg"
+                    class="hero-placeholder-image16 thq-img-scale thq-img-ratio-1-1"
+                  />
+                  <img
+                    alt="Hero Image"
+                    src="dokter8.jpg"
+                    class="hero-placeholder-image17 thq-img-scale thq-img-ratio-1-1"
+                  />
+                  <img
+                    alt="Hero Image"
+                    src="dokter9.jpg"
+                    class="hero-placeholder-image18 thq-img-scale thq-img-ratio-1-1"
+                  />
+                  <img
+                    alt="Hero Image"
+                    src="dokter10.jpg"
+                    class="hero-placeholder-image19 thq-img-scale thq-img-ratio-1-1"
+                  />
+                  
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="hero-container2">
+                <style>
+                  @keyframes scroll-x {
+                    from {
+                      transform: translateX(0);
+                    }
+                    to {
+                      transform: translateX(calc(-100% - 16px));
+                    }
+                  }
+
+                  @keyframes scroll-y {
+                    from {
+                      transform: translateY(0);
+                    }
+                    to {
+                      transform: translateY(calc(-100% - 16px));
+                    }
+                  }
+                </style>
+              </div>
+            </div>
+          </div>
+        </hero-wrapper>
+        <features1-wrapper class="features1-wrapper">
+          <!--Features1 component-->
+          <div class="thq-section-padding">
+            <div class="features1-container2 thq-section-max-width">
+              <div class="features1-image-container">
+                <img
+                  alt="Illustration of a doctor providing medical consultation"
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  class="features1-image1 thq-img-ratio-16-9"
+                />
+                <img
+                  alt="Illustration of a doctor's schedule calendar"
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  class="features1-image2 thq-img-ratio-16-9"
+                />
+                <img
+                  alt="Illustration of a medical record document"
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  class="features1-image3 thq-img-ratio-16-9"
+                />
+              </div>
+              <div class="features1-tabs-menu">
+                <div class="features1-tab-horizontal1">
+                  <div class="features1-divider-container1">
+                    <div class="features1-container3"></div>
+                  </div>
+                  <div class="features1-content1">
+                    <h2 class="thq-heading-2"><span>Registration</span></h2>
+                    <span class="thq-body-small">
+                      <span>
+                        Daftar sebagai pasien baru dengan mengisi formulir
+                        menggunakan data diri Anda
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div class="features1-tab-horizontal2">
+                  <div class="features1-divider-container2">
+                    <div class="features1-container4"></div>
+                  </div>
+                  <div class="features1-content2">
+                    <h2 class="thq-heading-2">
+                      <span>Appointment Booking</span>
+                    </h2>
+                    <span class="thq-body-small">
+                      <span>
+                        Pilih dokter yang Anda inginkan berdasarkan spesialisasi
+                        dan jadwalkan janji temu
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div class="features1-tab-horizontal3">
+                  <div class="features1-divider-container3">
+                    <div class="features1-container5"></div>
+                  </div>
+                  <div class="features1-content3">
+                    <h2 class="thq-heading-2"><span>Medical Records</span></h2>
+                    <span class="thq-body-small">
+                      <span>
+                        Lihat dan unduh rekam medis Anda dengan mudah dalam
+                        format PDF.
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </features1-wrapper>
+        <cta-wrapper class="cta-wrapper">
+          <!--CTA component-->
+          <div class="thq-section-padding">
+            <div class="thq-section-max-width">
+              <div class="cta-accent2-bg">
+                <div class="cta-accent1-bg">
+                  <div class="cta-container2">
+                    <div class="cta-content">
+                      <span class="thq-heading-2">
+                        <span>
+                          Daftar Sekarang untuk Layanan Kesehatan Terbaik!
+                        </span>
+                      </span>
+                      <p class="thq-body-large">
+                        <span>
+                          Jadilah bagian dari Klinik-Ku dan nikmati layanan
+                          kesehatan berkualitas.
+                        </span>
+                      </p>
+                    </div>
+                    <div class="cta-actions">
+                      <button
+                        type="button"
+                        class="thq-button-filled cta-button"
+                      >
+                        <span>Daftar Sekarang</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </cta-wrapper>
+        <features2-wrapper class="features2-wrapper">
+          <!--Features2 component-->
+          <div class="thq-section-padding">
+            <div class="features2-container2 thq-section-max-width">
+              <div class="features2-tabs-menu">
+                <div class="features2-tab-horizontal1">
+                  <div class="features2-divider-container1">
+                    <div class="features2-container3"></div>
+                  </div>
+                  <div class="features2-content1">
+                    <h2 class="thq-heading-2">
+                      <fragment class="home-fragment2">
+                        <span class="home-text5">Poli Umum</span>
+                      </fragment>
+                    </h2>
+                    <span class="thq-body-small">
+                      <fragment class="home-fragment3">
+                        <span class="home-text6">
+                          Melayani pemeriksaan kesehatan secara umum, layanan
+                          diberikan oleh dokter umum yang sudah memiliki surat
+                          izin praktek kedokteran umum.
+                        </span>
+                      </fragment>
+                    </span>
+                  </div>
+                </div>
+                <div class="features2-tab-horizontal2">
+                  <div class="features2-divider-container2">
+                    <div class="features2-container4"></div>
+                  </div>
+                  <div class="features2-content2">
+                    <h2 class="thq-heading-2"><span>Poli Kia</span></h2>
+                    <span class="thq-body-small">
+                      <span>
+                        Melayani pemeriksaan seputar kesehatan ibu dan anak,
+                        layanan diberikan oleh bidan dan dokter umum
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div class="features2-tab-horizontal3">
+                  <div class="features2-divider-container3">
+                    <div class="features2-container5"></div>
+                  </div>
+                  <div class="features2-content3">
+                    <h2 class="thq-heading-2"><span>Homecare</span></h2>
+                    <span class="thq-body-small">
+                      <fragment class="home-fragment4">
+                        <span class="home-text7">
+                          Melayani pemeriksaan kesehatan umum,ibu dan anak,
+                          khitan yang dilakukan di rumah* (Sesuai perjanjian).
+                        </span>
+                      </fragment>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="features2-image-container">
+                <img
+                  alt="feature 1"
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  class="features2-image1 thq-img-ratio-16-9"
+                />
+                <img
+                  alt="Ilustrasi fitur pencarian"
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  class="features2-image2 thq-img-ratio-16-9"
+                />
+                <img
+                  alt="image"
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  class="features2-image3 thq-img-ratio-16-9"
+                />
+              </div>
+            </div>
+          </div>
+        </features2-wrapper>
+        <steps-wrapper class="steps-wrapper">
+          <!--Steps component-->
+          <div class="steps-container1 thq-section-padding">
+            <div class="steps-max-width thq-section-max-width">
+              <div class="steps-container2 thq-grid-2">
+                <div class="steps-section-header">
+                  <h2 class="thq-heading-2">
+                    Pembayaran Melalui BPJS
+                  </h2>
+                  <p class="thq-body-large">
+                    Kesehatan tanpa hambatan! Bayar melalui BPJS di Klinik Ku. Dapatkan perawatan terbaik dengan pembayaran yang terjangkau melalui BPJS
+                  </p>
+                  <div class="steps-actions">
+                    <button
+                      class="thq-button-filled thq-button-animated steps-button"
+                    >
+                      <span class="thq-body-small">Klik di sini</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="steps-container3">
+                  <div class="steps-container4 thq-card">
+                    <h2 class="thq-heading-2">
+                      <span>Pendaftaran Pasien Baru</span>
+                    </h2>
+                    <span class="steps-text14 thq-body-small">
+                      <span>
+                        Isi formulir pendaftaran dengan informasi yang
+                        diperlukan.
+                      </span>
+                    </span>
+                    <label class="steps-text15 thq-heading-3">01</label>
+                  </div>
+                  <div class="steps-container5 thq-card">
+                    <h2 class="thq-heading-2">
+                      <span>Pilih Dokter dan Jadwal</span>
+                    </h2>
+                    <span class="steps-text17 thq-body-small">
+                      <span>
+                        Pilih dokter berdasarkan spesialisasi dan jadwal yang
+                        tersedia.
+                      </span>
+                    </span>
+                    <label class="steps-text18 thq-heading-3">02</label>
+                  </div>
+                  <div class="steps-container6 thq-card">
+                    <h2 class="thq-heading-2"><span>Rekam Medis</span></h2>
+                    <span class="steps-text20 thq-body-small">
+                      <span>
+                        Lihat riwayat kunjungan dan unduh rekam medis dalam
+                        format PDF.
+                      </span>
+                    </span>
+                    <label class="steps-text21 thq-heading-3">03</label>
+                  </div>
+                  <div class="steps-container7 thq-card">
+                    <h2 class="thq-heading-2"><span>Pembayaran</span></h2>
+                    <span class="steps-text23 thq-body-small">
+                      <span>
+                        Lihat rincian biaya, pilih metode pembayaran, dan
+                        konfirmasikan pembayaran.
+                      </span>
+                    </span>
+                    <label class="steps-text24 thq-heading-3">04</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </steps-wrapper>
+        <testimonial-wrapper class="testimonial-wrapper">
+          <!--Testimonial component-->
+          <div class="thq-section-padding">
+            <div class="testimonial-max-width thq-section-max-width">
+              <div class="testimonial-container10">
+                <h2 class="thq-heading-2"><span>Testimonials</span></h2>
+                <span class="testimonial-text11 thq-body-small">
+                  <span>
+                    Apa kata pasien kami tentang pengalaman mereka dengan Klinik-Ku?
+                  </span>
+                </span>
+              </div>
+              <div class="thq-grid-2">
+                <div class="thq-animated-card-bg-2">
+                  <div class="thq-animated-card-bg-1">
+                    <div
+                      data-animated="true"
+                      class="thq-card testimonial-card1"
+                    >
+                      <div class="testimonial-container12">
+                        <img
+                          alt=""
+                          src="https://images.unsplash.com/photo-1496360711189-5edeb09fe715?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMTkxODg1M3w&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+                          class="testimonial-image1"
+                        />
+                        <div class="testimonial-container13">
+                          <strong class="thq-body-large">
+                            <span>Agus Purnama</span>
+                          </strong>
+                          <span class="thq-body-small">
+                            <span>Pasien</span>
+                          </span>
+                        </div>
+                      </div>
+                      <span class="testimonial-text14 thq-body-small">
+                        <span>
+                          Saya menerima perawatan yang luar biasa dari para
+                          dokter di Klinik-Ku. Mereka sangat perhatian dan
+                          profesional
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="thq-animated-card-bg-2">
+                  <div class="thq-animated-card-bg-1">
+                    <div
+                      data-animated="true"
+                      class="thq-card testimonial-card2"
+                    >
+                      <div class="testimonial-container14">
+                        <img
+                          alt=""
+                          src="https://images.unsplash.com/photo-1632377082368-66155ad702d8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMTkxODg1NHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+                          class="testimonial-image2"
+                        />
+                        <div class="testimonial-container15">
+                          <strong class="thq-body-large">
+                            <span>Jane Smith</span>
+                          </strong>
+                          <span class="thq-body-small">
+                            <span>Pasien</span>
+                          </span>
+                        </div>
+                      </div>
+                      <span class="testimonial-text17 thq-body-small">
+                        <span>
+                          Staf di sini ramah dan fasilitasnya bersih. Saya sangat merekomendasikan Klinik-Ku kepada siapa pun yang membutuhkan perhatian medis.
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="thq-animated-card-bg-2">
+                  <div class="thq-animated-card-bg-1">
+                    <div
+                      data-animated="true"
+                      class="thq-card testimonial-card3"
+                    >
+                      <div class="testimonial-container16">
+                        <img
+                          alt=""
+                          src="https://images.unsplash.com/photo-1719165433650-7d4563c05a1c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMTkxODg1NXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+                          class="testimonial-image3"
+                        />
+                        <div class="testimonial-container17">
+                          <strong class="thq-body-large">
+                            <span>Rizal Mukti</span>
+                          </strong>
+                          <span class="thq-body-small">
+                            <span>Pasien</span>
+                          </span>
+                        </div>
+                      </div>
+                      <span class="testimonial-text20 thq-body-small">
+                        <span>
+                          Saya memiliki pengalaman yang luar biasa saat membuat janji temu secara online. Prosesnya mudah dan nyaman. 
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="thq-animated-card-bg-2">
+                  <div class="thq-animated-card-bg-1">
+                    <div
+                      data-animated="true"
+                      class="thq-card testimonial-card4"
+                    >
+                      <div class="testimonial-container18">
+                        <img
+                          alt=""
+                          src="https://images.unsplash.com/photo-1554151228-14d9def656e4?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMTkxODg1NHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+                          class="testimonial-image4"
+                        />
+                        <div class="testimonial-container19">
+                          <strong class="thq-body-large">
+                            <span>Sarah Intan</span>
+                          </strong>
+                          <span class="thq-body-small">
+                            <span>Pasien</span>
+                          </span>
+                        </div>
+                      </div>
+                      <span class="testimonial-text23 thq-body-small">
+                        <span>
+                          Dokter-dokter di sini sangat berpengetahuan dan peduli. Saya merasa sangat diperhatikan selama kunjungan saya
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </testimonial-wrapper>
+        <contact-wrapper class="contact-wrapper">
+          <!--Contact component-->
+          <div class="contact-contact20 thq-section-padding">
+            <div class="contact-max-width thq-section-max-width">
+              <div class="contact-section-title">
+                <span class="thq-body-small">
+                  <span>
+                    Anda juga dapat menghubungi kami melalui kontak dan media sosial Klinik-ku di bawah
+                    ini:
+                  </span>
+                </span>
+                <div class="contact-content1">
+                  <h2 class="thq-heading-2"><span>Hubungi Kami</span></h2>
+                  <p class="contact-text3 thq-body-large">
+                    <span>
+                      Silakan hubungi kami jika Anda memiliki pertanyaan atau
+                      memerlukan bantuan.
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-content2">
+                  <svg viewBox="0 0 1024 1024" class="thq-icon-medium">
+                    <path
+                      d="M854 342v-86l-342 214-342-214v86l342 212zM854 170q34 0 59 26t25 60v512q0 34-25 60t-59 26h-684q-34 0-59-26t-25-60v-512q0-34 25-60t59-26h684z"
+                    ></path>
+                  </svg>
+                  <div class="contact-contact-info1">
+                    <div class="contact-content3">
+                      <h3 class="contact-text4 thq-heading-3">Email</h3>
+                      <p class="contact-text5 thq-body-large">
+                        <span>Kami akan merespons secepatnya.</span>
+                      </p>
+                    </div>
+                    <span class="contact-email thq-body-small">
+                      <span>info@klinik-ku.com</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="contact-content4">
+                  <svg viewBox="0 0 1024 1024" class="thq-icon-medium">
+                    <path
+                      d="M282 460q96 186 282 282l94-94q20-20 44-10 72 24 152 24 18 0 30 12t12 30v150q0 18-12 30t-30 12q-300 0-513-213t-213-513q0-18 12-30t30-12h150q18 0 30 12t12 30q0 80 24 152 8 26-10 44z"
+                    ></path>
+                  </svg>
+                  <div class="contact-contact-info2">
+                    <div class="contact-content5">
+                      <h3 class="contact-text6 thq-heading-3">Phone</h3>
+                      <p class="contact-text7 thq-body-large">
+                        <span>Alamat Klinik:</span>
+                      </p>
+                    </div>
+                    <span class="contact-phone thq-body-small">
+                      <span>+62 123 4567 890</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="contact-content6">
+                  <svg viewBox="0 0 1024 1024" class="thq-icon-medium">
+                    <path
+                      d="M512 0c-176.732 0-320 143.268-320 320 0 320 320 704 320 704s320-384 320-704c0-176.732-143.27-320-320-320zM512 512c-106.040 0-192-85.96-192-192s85.96-192 192-192 192 85.96 192 192-85.96 192-192 192z"
+                    ></path>
+                  </svg>
+                  <div class="contact-contact-info3">
+                    <div class="contact-content7">
+                      <h3 class="contact-text8 thq-heading-3">Office</h3>
+                      <p class="contact-text9 thq-body-large">
+                        <span>
+                          Jam Operasional: Senin - Jumat, 08.00 - 17.00
+                        </span>
+                      </p>
+                    </div>
+                    <span class="contact-address thq-body-small">
+                      <span>Jl. Kesehatan No. 123, Kota Sehat</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </contact-wrapper>
+        <footer-wrapper class="footer-wrapper">
+          <!--Footer component-->
+          <footer class="footer-footer1 thq-section-padding">
+            <div class="footer-max-width thq-section-max-width">
+              <div class="footer-content">
+                <div class="footer-newsletter">
+                  <div class="footer-actions">
+                    <div class="footer-form">
+                      <div class="footer-container">
+                        <input
+                          type="email"
+                          placeholder="Enter your email"
+                          class="footer-text-input thq-input"
+                        />
+                      </div>
+                    </div>
+                    <span class="footer-content2 thq-body-small">
+                      <span>
+                        Jam Operasional: Senin - Jumat, 08.00 - 17.00 WIB
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div class="footer-links">
+                  <div class="footer-column1">
+                    <strong class="thq-body-large footer-column1-title">
+                      <span>Informasi Kontak</span>
+                    </strong>
+                    <div class="footer-footer-links1">
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>Alamat: Jl. Kesehatan No. 123, Kota Sehat</span>
+                      </a>
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>Nomor Telepon: 0800-123-456</span>
+                      </a>
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>Facebook</span>
+                      </a>
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>Instagram</span>
+                      </a>
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>Twitter</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="footer-column2">
+                    <strong class="thq-body-large footer-column2-title">
+                      <span>Column Two</span>
+                    </strong>
+                    <div class="footer-footer-links2">
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>LinkedIn</span>
+                      </a>
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>YouTube</span>
+                      </a>
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>Pinterest</span>
+                      </a>
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>TikTok</span>
+                      </a>
+                      <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="thq-body-small"
+                      >
+                        <span>WhatsApp</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="footer-column3">
+                    <strong class="thq-body-large footer-social-link1-title">
+                      <span>Ikuti Kami</span>
+                    </strong>
+                    <div class="footer-social-links">
+                      <div class="footer-link14">
+                        <svg
+                          viewBox="0 0 877.7142857142857 1024"
+                          class="thq-icon-small"
+                        >
+                          <path
+                            d="M713.143 73.143c90.857 0 164.571 73.714 164.571 164.571v548.571c0 90.857-73.714 164.571-164.571 164.571h-107.429v-340h113.714l17.143-132.571h-130.857v-84.571c0-38.286 10.286-64 65.714-64l69.714-0.571v-118.286c-12-1.714-53.714-5.143-101.714-5.143-101.143 0-170.857 61.714-170.857 174.857v97.714h-114.286v132.571h114.286v340h-304c-90.857 0-164.571-73.714-164.571-164.571v-548.571c0-90.857 73.714-164.571 164.571-164.571h548.571z"
+                          ></path>
+                        </svg>
+                        <span class="thq-body-small">Facebook</span>
+                      </div>
+                      <div class="footer-link15">
+                        <svg
+                          viewBox="0 0 877.7142857142857 1024"
+                          class="thq-icon-small"
+                        >
+                          <path
+                            d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
+                          ></path>
+                        </svg>
+                        <span class="thq-body-small">Instagram</span>
+                      </div>
+                      <div class="footer-link16">
+                        <svg
+                          viewBox="0 0 950.8571428571428 1024"
+                          class="thq-icon-small"
+                        >
+                          <path
+                            d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"
+                          ></path>
+                        </svg>
+                        <span class="thq-body-small">X</span>
+                      </div>
+                      <div class="footer-link17">
+                        <svg
+                          viewBox="0 0 877.7142857142857 1024"
+                          class="thq-icon-small"
+                        >
+                          <path
+                            d="M135.429 808h132v-396.571h-132v396.571zM276 289.143c-0.571-38.857-28.571-68.571-73.714-68.571s-74.857 29.714-74.857 68.571c0 37.714 28.571 68.571 73.143 68.571h0.571c46.286 0 74.857-30.857 74.857-68.571zM610.286 808h132v-227.429c0-121.714-65.143-178.286-152-178.286-70.857 0-102.286 39.429-119.429 66.857h1.143v-57.714h-132s1.714 37.143 0 396.571v0h132v-221.714c0-11.429 0.571-23.429 4-32 9.714-23.429 31.429-48 68-48 47.429 0 66.286 36 66.286 89.714v212zM877.714 237.714v548.571c0 90.857-73.714 164.571-164.571 164.571h-548.571c-90.857 0-164.571-73.714-164.571-164.571v-548.571c0-90.857 73.714-164.571 164.571-164.571h548.571c90.857 0 164.571 73.714 164.571 164.571z"
+                          ></path>
+                        </svg>
+                        <span class="thq-body-small">LinkedIn</span>
+                      </div>
+                      <div class="footer-link18">
+                        <svg viewBox="0 0 1024 1024" class="thq-icon-small">
+                          <path
+                            d="M406.286 644.571l276.571-142.857-276.571-144.571v287.429zM512 152c215.429 0 358.286 10.286 358.286 10.286 20 2.286 64 2.286 102.857 43.429 0 0 31.429 30.857 40.571 101.714 10.857 82.857 10.286 165.714 10.286 165.714v77.714s0.571 82.857-10.286 165.714c-9.143 70.286-40.571 101.714-40.571 101.714-38.857 40.571-82.857 40.571-102.857 42.857 0 0-142.857 10.857-358.286 10.857v0c-266.286-2.286-348-10.286-348-10.286-22.857-4-74.286-2.857-113.143-43.429 0 0-31.429-31.429-40.571-101.714-10.857-82.857-10.286-165.714-10.286-165.714v-77.714s-0.571-82.857 10.286-165.714c9.143-70.857 40.571-101.714 40.571-101.714 38.857-41.143 82.857-41.143 102.857-43.429 0 0 142.857-10.286 358.286-10.286v0z"
+                          ></path>
+                        </svg>
+                        <span class="thq-body-small">Youtube</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-credits">
+                <div class="thq-divider-horizontal"></div>
+                <div class="footer-row">
+                  <span class="thq-body-small"><span>© Klinik-Ku</span></span>
+                  <div class="footer-footer-links3">
+                    <span class="thq-body-small">
+                      <span>Privacy Policy</span>
+                    </span>
+                    <span class="thq-body-small">
+                      <span>Terms of Service</span>
+                    </span>
+                    <span class="thq-body-small">
+                      <span>Cookies Settings</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </footer-wrapper>
+      </div>
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>
